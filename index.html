@@ -4,8 +4,10 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet"> 
 
-		<title>reveal.js</title>
+		<title>FyChKulačka</title>
 
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Raleway:wght@400;600&display=swap" rel="stylesheet"> 
@@ -16,18 +18,51 @@
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+		
 		<style>
+			/* body {
+				display: flex;
+				flex-direction: row;
+				height: 100vh;
+			} */
+			.still {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.still img {
+				min-height: 75vh;
+				object-fit: contain;
+				margin-left: 12.5vh;
+			}
+			.fychkulacka {
+				font-family: 'Lobster', cursive !important;
+				text-transform: none !important;
+			}
+			.fychkulacka .fy {
+				color: #82B039;
+			}
+			.fychkulacka .ch {
+				color: #FF9429;
+			}
 			.highlight-correct {
-				color: greenyellow;
+				color: #91da1d;
 			}
 			.highlight-wrong {
-				color: red;
+				color: rgb(241, 26, 26);
 			}
 			.small-text {
 				font-size: 20px;
 			}
 			.separator {
 				width: 300px;
+			}
+			ul li::before {
+				float: left;
+				width: 1em;
+				height: 1em;
+				background-color: #f80;
+				margin-right: .75em;
 			}
 			.r-vstack .r-stack {
 				margin-bottom: 0.5em;
@@ -41,13 +76,16 @@
 
 	
 	<body>
+<!-- 		<div class="still">
+			<img src="img/title.png" style="height:400px; margin-right:10px;">
+		</div> -->
 		<div class="reveal">
 			<div class="slides">
-				
 				<section data-auto-animate>
 					<div class="r-hstack">
-						<img src="phone.jpg" style="height:400px; margin-right:10px;">
+						<img src="img/title.png" style="height:400px; margin-right:10px;">
 						<div>
+							<h1 class="fychkulacka"><span class="fy">Fy</span><span class="ch">Ch</span>Kulačka</h1>
 							<h2>Tohle je naše aplikace</h2>
 							<p>dokáže úplně všechno</p>
 						<div>
@@ -55,7 +93,7 @@
 				</section>
 				<section data-auto-animate>
 					<div class="r-hstack">
-						<img src="phone.jpg" style="height:200px; margin-right:10px;">
+						<img src="img/title.png" style="height:200px; margin-right:10px;">
 						<div>
 							<p style="color: red">dokáže úplně všechno</p>
 						<div>
