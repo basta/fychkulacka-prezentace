@@ -1,0 +1,309 @@
+
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Raleway:wght@400;600&display=swap" rel="stylesheet"> 
+	
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css" id="theme"> <!--V dist/theme/ je jich tuna-->
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+		<style>
+			.highlight-correct {
+				color: greenyellow;
+			}
+			.highlight-wrong {
+				color: red;
+			}
+			.small-text {
+				font-size: 20px;
+			}
+			.separator {
+				width: 300px;
+			}
+			.r-vstack .r-stack {
+				margin-bottom: 0.5em;
+				margin-top: 0.5em;
+			}
+			.header-with-space {
+				margin-bottom: 100px;
+			}
+		</style>
+	</head>
+
+	
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				
+				<section data-auto-animate>
+					<div class="r-hstack">
+						<img src="phone.jpg" style="height:400px; margin-right:10px;">
+						<div>
+							<h2>Tohle je naše aplikace</h2>
+							<p>dokáže úplně všechno</p>
+						<div>
+					</div>
+				</section>
+				<section data-auto-animate>
+					<div class="r-hstack">
+						<img src="phone.jpg" style="height:200px; margin-right:10px;">
+						<div>
+							<p style="color: red">dokáže úplně všechno</p>
+						<div>
+					</div>
+				</section>
+				<!--Fyzika-->
+				<section data-auto-animate><h3>vytváření databáze</h3><img class="stretch" src="reseneulohy.png"></section>
+				</section>
+				<section data-auto-animate> <!--data obyčejné frekvenční analýzy-->
+					<h3>vytváření databáze</h3>
+					<pre style="font-size: 20px"><code data-trim data-noescape> <script type="text/template">
+					<div class="taskSetup">
+						<p>
+						Ocelovou kuličku pustíme
+						z&nbsp;klidu po hladké nakloněné rovině, na které se pohybuje
+						se zrychlením  0,5&nbsp;m·s<sup>−2</sup>.
+						Potom přejde na vodorovnou dráhu. 
+						Celkově ujede dráhu  20&nbsp;metrů za  čas 
+						12&nbsp;sekund. Jak dlouho se pohybuje po nakloněné rovině?
+						</p>
+						<p>Tření a odpor prostředí zanedbejte.</p>
+						<div class="sectionEnder"></div>
+					</div>
+				</script></code></pre>
+				</section>
+				<section data-auto-animate> <!--data obyčejné frekvenční analýzy-->
+					<h3>vytváření databáze</h3>
+					<pre style="font-size: 20px"><code data-trim data-noescape data-line-numbers="5-6">
+					def get_problem_statement(link):
+						r = requests.get(link)
+						html = r.content
+						soup = BeautifulSoup(html, "html5lib")
+						statement = soup.find("div", attrs={"class": "taskSetup"})
+						.findAll("p")
+						statement_text = " | "
+						.join([paragraph.text for paragraph in statement])
+						return statement_text					
+					</code></pre>
+				</section>
+				<section data-auto-animate> <!--data obyčejné frekvenční analýzy-->
+					<h3>vytváření databáze</h3>
+					<pre style="font-size: 20px"><code data-trim data-noescape>
+						0 http://reseneulohy.cz/762/housenka  Na obrázku je zaznamenaná stopa housenky s časovými údaji, kdy kde byla. | >
+						1 http://reseneulohy.cz/226/auto,-chodec,-cyklista---grafy-s,-v Auto, chodec a cyklista se pohybují po stejné sil>
+						2 http://reseneulohy.cz/15/pohyb-dany-graficky-i Na obrázku jsou grafy závislosti  dráhy na čase přímočarých pohy>
+						3 http://reseneulohy.cz/136/vytah Na obrázku je zakreslena časová  závislost   x(t)  polohy kabiny výtahu. | a) P>
+						4 http://reseneulohy.cz/134/pohyb-dany-graficky-ii Grafy na obrázcích: | a) Považujte za průběhy souřadnice x(t) >
+						5 http://reseneulohy.cz/135/pohyb-dany-graficky-iii Kruhový kotouč se otáčí s úhlovým zrychlením ε, jehož závislo>
+						6 http://reseneulohy.cz/137/prumerna-rychlost-auta-i Rychlost auta v prudkém  stoupání je 30 km·h−1.  V následují>
+						7 http://reseneulohy.cz/227/prumerna-rychlost-auta-ii Spěchající motorista se snaží překonat kopec. Stoupání i kl>
+						8 http://reseneulohy.cz/17/anicka-na-vylete Anička si vyjela na kole na výlet.  Nejprve stoupala do kopce přibliž>
+						9 http://reseneulohy.cz/219/hajny-a-pes   Představme si hajného, který se vrací z obchůzky po lese a jde stálou r>
+						10 http://reseneulohy.cz/104/pozorovani-letadla Ve vzdálenosti 1 m od okna širokého  50 cm  sleduje pozorovatel l>										
+					</code></pre>
+				</section>
+				<section> <!--podobnostní koeficient-->
+					<h3> podobnostní koeficient </h3>
+					<div class="r-hstack">
+						<div class = "r-stack">
+							<p class="small-text fragment" data-fragment-index="0">Automobilista prošel první třetinu dráhy a měl rychlost v1,
+							další dvě třetiny měl rychlost v2 = 72 km.h-1.
+							Průměrnou rychlost měl 36 km.h-1. Vypočtěte v1!</p>
+							<p class="small-text fragment" data-fragment-index="4">Automobilista prošel první třetinu dráhy a měl <span class="highlight-correct">rychlost</span> v1,
+							další dvě třetiny měl <span class="highlight-correct">rychlost</span> v2 = 72 km.h-1.
+							Průměrnou <span class="highlight-correct">rychlost</span> měl 36 km.h-1. Vypočtěte v1!</p>
+							<p class="small-text fragment" data-fragment-index="5">Automobilista prošel první třetinu dráhy a <span class="highlight-wrong">měl</span> <span class="highlight-correct">rychlost</span> v1,
+							další dvě třetiny <span class="highlight-wrong">měl</span> <span class="highlight-correct">rychlost</span> v2 = 72 km.h-1.
+							Průměrnou <span class="highlight-correct">rychlost</span> <span class="highlight-wrong">měl</span> 36 km.h-1. Vypočtěte v1!</p>
+							
+						</div>
+						<div class = "separator">
+							\[\Rightarrow\]
+						</div>
+						<div class = "r-vstack">
+							<div class = "r-stack"><p class="small-text fragment" data-fragment-index="1">Rychlost auta v prudkém stoupání je 30 km·h−1. V následujícím stejně dlouhém sjezdu jede rychlostí 90 km·h−1. Určete, jak velká je průměrná velikost rychlosti auta.</p>
+							<div class = "r-stack"><p class="small-text fragment" data-fragment-index="4"><span class="highlight-correct">Rychlost</span> auta v prudkém stoupání je 30 km·h−1. V následujícím stejně dlouhém sjezdu jede <span class="highlight-correct">rychlost</span>í 90 km·h−1. Určete, jak velká je průměrná velikost <span class="highlight-correct">rychlost</span>i auta.</p></div>
+							</div>
+							<div class = "r-stack"><p class="small-text fragment" data-fragment-index="2">Raketa, co měla modrý pruh a měla silný motor, dosáhne druhou kosmickou rychlost 11 km.s-1 po ujetí dráhy 200 km. Za jaký čas to dosáhne? Jaké je její zrychlení?</p>
+							<div class = "r-stack"><p class="small-text fragment" data-fragment-index="4">Raketa, co měla modrý pruh a měla silný motor, dosáhne druhou kosmickou <span class="highlight-correct">rychlost</span> 11 km.s-1 po ujetí dráhy 200 km. Za jaký čas to dosáhne? Jaké je její zrychlení? </p></div>
+							<div class = "r-stack"><p class="small-text fragment" data-fragment-index="5">Raketa, co <span class="highlight-wrong">měl</span>a modrý pruh a <span class="highlight-wrong">měl</span>a silný motor, dosáhne druhou kosmickou <span class="highlight-correct">rychlost</span> 11 km.s-1 po ujetí dráhy 200 km. Za jaký čas to dosáhne? Jaké je její zrychlení? </p></div>
+							</div>
+							<div class = "r-stack"><p class="small-text fragment" data-fragment-index="3">Uvažujme elektron, jehož průmět spinu do směru osy x je záporný. Vypočítejte pravděpodobnost, že měl kladnou, hodnotu průmětu spinu do směru (1,0,1).</p>
+							<div class = "r-stack"><p class="small-text fragment" data-fragment-index="4">Uvažujme elektron, jehož průmět spinu do směru osy x je záporný. Vypočítejte pravděpodobnost, že měl kladnou, hodnotu průmětu spinu do směru (1,0,1).</p>
+							<div class = "r-stack"><p class="small-text fragment" data-fragment-index="5">Uvažujme elektron, jehož průmět spinu do směru osy x je záporný. Vypočítejte pravděpodobnost, že <span class="highlight-wrong">měl</span> kladnou, hodnotu průmětu spinu do směru (1,0,1).</p>
+							</div>
+							</div>
+							<!--first change-->
+							
+						</div>
+					</div>
+				</section>
+				<section data-auto-animate><h3>TF-IDF</h3></section>
+				<section data-auto-animate>
+					<h3 style="margin-bottom: 100px;">TF-IDF</h3>
+					<div class="r-stack">
+						<p class="fragment fade-in-then-out">\[\frac{\qquad\qquad\qquad\qquad\qquad}{\text{}}\] </p>
+						<p class="fragment fade-in-then-out">\[\frac{\text{frekvence slova v příkladu}}{\text{}}\] </p>
+						<p class="fragment fade-in-then-out">\[\frac{\text{frekvence slova v příkladu}}{\text{frekvence slova napříč příklady}}\]</p>
+					</div>
+				</section>
+				<section> <!--příklad, na který se budu zaměřovat-->
+					<div class="r-stack">
+						<p class="fragment fade-in-then-out">Automobilista prošel první třetinu dráhy a měl rychlost v1, 
+							další dvě třetiny měl rychlost v2 = 72 km.h-1. 
+							Průměrnou rychlost měl 36 km.h-1. Vypočtěte v1!</p>
+						<p class="fragment fade-in-then-out">Automobilista prošel první třetinu dráhy a měl <span style="color: greenyellow">rychlost</span> v1, 
+							další dvě třetiny měl <span style="color: greenyellow">rychlost</span> v2 = 72 km.h-1.
+							Průměrnou <span style="color: greenyellow">rychlost</span> měl 36 km.h-1. Vypočtěte v1!</p>
+						<p class="fragment fade-in-then-out">Automobilista prošel první třetinu dráhy a <span style="color: red">měl</span> <span style="color: greenyellow">rychlost</span> v1, 
+							další dvě třetiny <span style="color: red">měl</span> <span style="color: greenyellow">rychlost</span> v2 = 72 km.h-1. 
+							Průměrnou <span style="color: greenyellow">rychlost</span> <span style="color: red">měl</span> 36 km.h-1. Vypočtěte v1!</p>		
+					</div>
+				</section>
+				<section data-auto-animate>
+					<h3 style=>TF-IDF</h3>
+					<div class="r-hstack">
+						<div class="r-vstack">
+							<span class="fragment"> počet <span style="color: red">měl</span> v úloze: 3 <br></span>
+							<span class="fragment"> počet <span style="color: red">měl</span> v databázi: 33 <br></span>
+							<span class="fragment"> \[\frac{3}{33} = 0.09\] </span>
+						</div>
+						<div style="width: 20px"></div>
+						<div class="r-vstack">
+							<span class="fragment"> počet <span style="color: greenyellow">rychlost</span> v úloze: 3 <br></span>
+							<span class="fragment"> počet <span style="color: greenyellow">rychlost</span> v databázi: 338 <br></span>
+							<span class="fragment"> \[\frac{3}{338} = 0.008\] </span>
+						</div>
+					</div>
+				</section>
+				<section data-auto-animate>
+					<h3>Náš přístup</h3>
+				</section>
+				<section data-auto-animate>
+					<h3 class="header-with-space">Náš přístup</h3>
+					<div class="r-stack">
+						<p class="fragment fade-in-then-out">\[\frac{\text{frekvence slova v příkladu}}{\text{}}\] </p>
+						<p class="fragment fade-in-then-out">\[\frac{\text{frekvence slova v příkladu}}{\text{frekvence slova v korpusu}}\]</p>
+					</div>
+				</section>
+				
+				<section>
+					<pre style="font-size: 20px"><code data-trim data-noescape>
+						1	a	2888276	2902999	1043349	1032997	826654	
+						2	se	2460596	2471105	1074718	681327	715060	
+						3	na	1713721	1721220	600937	515231	605052	
+						4	v	1654118	1662427	399727	616443	646257	
+						5	je	1062474	1068193	286008	421948	360237	
+						6	že	940618	944636	400445	262321	281869	
+						7	to	865165	868192	431721	175614	260858	
+						8	s	761126	764887	242118	268268	254501	
+						9	z	653892	656928	202728	215496	238703	
+						10	do	647272	650021	252594	183307	214121	
+						11	si	623725	625846	326063	118968	180815					
+					</code></pre>
+				</section>
+				<section data-auto-animate>
+					<h3 class="header-with-space">Náš přístup</h3>
+						<div class="r-hstack">
+							<div class="r-vstack">
+								<span class="fragment"> počet <span style="color: red">měl</span> v úloze: 3 <br></span>
+								<span class="fragment"> počet <span style="color: red">měl</span> v databázi: 85834 <br></span>
+								<span class="fragment"> \[\frac{3}{85834} = 0.0000349\] </span>
+							</div>
+							<div style="width: 20px"></div>
+							<div class="r-vstack">
+								<span class="fragment"> počet <span style="color: greenyellow">rychlost</span> v úloze: 3 <br></span>
+								<span class="fragment"> počet <span style="color: greenyellow">rychlost</span> v databázi: 6317 <br></span>
+								<span class="fragment"> \[\frac{3}{338} = 0.000474\] </span>
+							</div>
+						</div>
+					
+				</section>
+				<section>
+					<h3 class="header-with-space">Porovnání</h3>
+					<div class="r-hstack">
+						<div style="width: 100%">
+							<canvas data-chart="bar" width="100px" class="fragment"> 
+								<!--
+								{
+								"data": {
+									"labels": ["měl", "rychlost"],
+									"datasets": [
+									{
+
+										"data":[0.09, 0.008],
+										"label":"TF-IDF","backgroundColor":["#F00", "#0F0"]
+									}
+									]
+								},
+								"options": { "responsive": "true" }
+								}
+								-->
+							</canvas>
+						</div>
+						<div style="width: 100%">
+							<canvas data-chart="bar" width="100px" class="fragment">
+								<!--
+							{
+							"data": {
+								"labels": ["měl", "rychlost"],
+								"datasets": [
+								{
+
+									"data":[0.0000349, 0.000474],
+									"label":"Náš přístup","backgroundColor":["#F00", "#0F0"]
+								}
+								]
+							},
+							"options": { "responsive": "true" }
+							}
+							-->
+							</canvas>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="../plugin/math/math.js"></script>
+		<script src="plugin/chart/Chart.min.js"></script>
+		<script src="plugin/chart/plugin.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				math: {
+						mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+						config: 'TeX-AMS_HTML-full',
+						// pass other options into `MathJax.Hub.Config()`
+						TeX: { Macros: { RR: "{\\bf R}" } }
+					},
+				chart: {
+					defaults: {
+						global: {
+							defaultFontColor: "#000",
+						}
+					},
+					bar: {backgroundColor: ["rgba(20,220,220,.8)"]}
+				},
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath, RevealChart ]
+			});
+		</script>
+	</body>
+</html>
